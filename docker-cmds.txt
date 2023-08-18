@@ -1,0 +1,8 @@
+docker ps -a
+
+docker-compose up --scale product-app=2 -d
+
+
+
+docker cp .\target\api-gateway-0.0.1-SNAPSHOT.jar d6bc9e25deb3:/opt/app/app.jar
+

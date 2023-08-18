@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "af989483-1ea7-4e6a-b468-35fc5594ec35",
+		"name": "Ecom micro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18357477"
+	},
+	"item": [
+		{
+			"name": "config-refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/actuator/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"actuator",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "config server properties",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"eureka\": {\r\n        \"client\": {\r\n            \"serviceUrl\": {\r\n                \"defaultZone\": \"http://eureka:abcd1234@eureka-server:8761/eureka\"\r\n            }\r\n        }\r\n    },\r\n    \r\n    \"spring\": {\r\n        \"cloud\": {\r\n            \"config\": {\r\n                \"server\": {\r\n                    \"git\": {\r\n                        \"uri\": {\r\n                            \"file://D:/__project_repo/EcomMicro/configRepo\"\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/order-app/default",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"order-app",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Products from gateway",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/product/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"product",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order get from gateway",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/order/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"order",
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
